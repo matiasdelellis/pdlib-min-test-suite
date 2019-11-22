@@ -15,7 +15,7 @@ faces_folder_path = "input/"
 # to find face landmarks so we can precisely localize the face, and finally the
 # face recognition model.
 
-detector = dlib.cnn_face_detection_model_v1(sys.argv[1])
+detector = dlib.cnn_face_detection_model_v1(detector_path)
 sp = dlib.shape_predictor(predictor_path)
 facerec = dlib.face_recognition_model_v1(face_rec_model_path)
 
