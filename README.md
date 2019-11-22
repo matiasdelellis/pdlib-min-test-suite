@@ -12,6 +12,8 @@ remote: Compressing objects: 100% (9/9), done.
 remote: Total 9 (delta 0), reused 9 (delta 0), pack-reused 0
 Desempaquetando objetos: 100% (9/9), listo.
 [matias@nube ~]$ cd pdlib-min-test-suite/
+```
+```
 [matias@nube pdlib-min-test-suite]$ make 
 php scripts/face_detect.php
 Welcome to pdlib min test suite for Facerecognition app
