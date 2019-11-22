@@ -15,9 +15,16 @@ faces_folder_path = "input/"
 # to find face landmarks so we can precisely localize the face, and finally the
 # face recognition model.
 
+print ("Welcome to pdlib min test suite for Facerecognition app");
+print ("")
+print ("First we try to open the models... ", end='');
+
 detector = dlib.cnn_face_detection_model_v1(detector_path)
 sp = dlib.shape_predictor(predictor_path)
 facerec = dlib.face_recognition_model_v1(face_rec_model_path)
+
+print ("Done")
+print ("")
 
 # Now find all the faces and compute 128D face descriptors for each face.
 types = (os.path.join(faces_folder_path, "*.jpg"), os.path.join(faces_folder_path, "*.png"))
@@ -38,12 +45,15 @@ for f in files_grabbed:
     # Now process each face we found.
     for k, d in enumerate(dets):
         # Get the landmarks/parts for the face in box d.
+        print ("Face landmarks... ", end = '')
         rec = dlib.rectangle(d.rect.left(), d.rect.top(), d.rect.right(), d.rect.bottom())
         shape = sp(img, rec)
+        print ("Done")
 
         # Compute the 128D vector that describes the face in img identified by
         # shape.  
+        print ("Face descriptor... ", end='')
         face_descriptor = facerec.compute_face_descriptor(img, shape)
-        print ("Face descriptor... Done")
+        print ("Done")
 
 
