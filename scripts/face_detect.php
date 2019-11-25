@@ -1,5 +1,11 @@
 <?php
-print ("Welcome to pdlib min test suite for Facerecognition app\n\n");
+print ("Welcome to pdlib min test suite for Facerecognition app...\n\n");
+
+if (!extension_loaded('pdlib')) {
+    print ("The PHP extension PDlib is not loaded. Please configure this.\n\n");
+    printHelp();
+    return -1;
+}
 
 print ("First we try to open the models... ");
 
@@ -10,6 +16,14 @@ $fld = new FaceLandmarkDetection("vendor/models/1/shape_predictor_5_face_landmar
 $fr = new FaceRecognition("vendor/models/1/dlib_face_recognition_resnet_model_v1.dat");
 
 print ("Done\n\n");
+
+function printHelp() {
+    print ("Please read our documentation:\n");
+    print (" - https://github.com/matiasdelellis/facerecognition/wiki/Installation#install-pdlib\n");
+    print (" - https://github.com/matiasdelellis/pdlib-min-test-suite/wiki/Troubleshooting\n\n");
+    print ("But if you need help open an issue here:\n");
+    print (" - https://github.com/matiasdelellis/pdlib-min-test-suite/issues/new\n");
+}
 
 // Find faces.
 function findFaces ($img_path)
