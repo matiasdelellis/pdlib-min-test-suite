@@ -3,8 +3,12 @@
 
 import sys
 import os
-import dlib
 import glob
+try:
+    import dlib
+except ImportError:
+    print("it seems you don't have python binding installed")
+    exit()
 
 detector_path = "vendor/models/1/mmod_human_face_detector.dat"
 predictor_path = "vendor/models/1/shape_predictor_5_face_landmarks.dat"
