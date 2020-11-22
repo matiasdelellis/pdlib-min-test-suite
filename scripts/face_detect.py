@@ -43,7 +43,7 @@ for f in files_grabbed:
     # Ask the detector to find the bounding boxes of each face. The 1 in the
     # second argument indicates that we should upsample the image 1 time. This
     # will make everything bigger and allow us to detect more faces.
-    dets = detector(img, 1)
+    dets = detector(img)
     print("Number of faces detected: {}".format(len(dets)))
 
     # Now process each face we found.
