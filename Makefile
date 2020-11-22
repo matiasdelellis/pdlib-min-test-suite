@@ -29,6 +29,10 @@ php-test: download-models
 python-test: download-models
 	python3 scripts/face_detect.py
 
+cpp-test: download-models
+	g++ -o face_detect -std=c++11 -O3 `pkg-config --libs dlib-1` scripts/face_detect.cpp
+	./face_detect input/Big\ Bang\ Theory.jpg input/Big\ Bang\ Theory.png
+
 tests: php-test
 
 # Clean
